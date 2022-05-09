@@ -21,7 +21,7 @@ class TestConfig(Config):
     pass
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://april:2222@localhost/pitch'
+    
     DEBUG = True
 
 config_options = {

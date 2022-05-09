@@ -1,5 +1,6 @@
 from . import db
 from sqlalchemy.sql import func
+# from werkzeug.security import generate_password_hash,check_password_hash
 
 
 class Note(db.Model):
@@ -9,8 +10,8 @@ class Note(db.Model):
     date = db.Column(db.DateTime(timezone = True),default=func.now)
     users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
-    def __repr__(self):
-        return f'User {self.user_id}'
+#     def __repr__(self):
+#         return f'User {self.users_id}'
 
 class User(db.Model):
     __tablename__ = 'users'

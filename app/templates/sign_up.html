@@ -4,9 +4,14 @@
 Sign Up
 {% endblock %}
 
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
 {% block content %}
-<form method="POST">
-    <h3 align="center">Sign Up</h3>
+<form method="POST" >
+    <h3 align="center" class="signup">Sign Up</h3>
     <div class="form-group">
         <label form="email">Email Address</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
