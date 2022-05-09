@@ -3,8 +3,8 @@ from sqlalchemy.sql import func
 # from werkzeug.security import generate_password_hash,check_password_hash
 
 
-class Note(db.Model):
-    __tablename__ = 'notes'
+class Pitch(db.Model):
+    __tablename__ = 'pitches'
     id = db.Column(db.Integer,primary_key =True)
     data = db.Column(db.String (1000))
     date = db.Column(db.DateTime(timezone = True),default=func.now)
@@ -19,7 +19,7 @@ class User(db.Model):
     email = db.Column(db.String (225),unique =True)
     password = db.Column(db.String (225))
     first_name = db.Column(db.String (225))
-    notes = db.relationship('Note')
+    pitches = db.relationship('Pitch')
 
-    def __repr__(self):
-        return f'User {self.first_name}'
+    # def __repr__(self):
+    #     return f'User {self.first_name}'
