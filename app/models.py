@@ -7,7 +7,10 @@ class Note(db.Model):
     id = db.Column(db.Integer,primary_key =True)
     data = db.Column(db.String (1000))
     date = db.Column(db.DateTime(timezone = True),default=func.now)
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        return f'User {self.user_id}'
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -17,5 +20,5 @@ class User(db.Model):
     first_name = db.Column(db.String (225))
     notes = db.relationship('Note')
 
-    # def __repr__(self):
-    #     return f'User {self.username}'
+    def __repr__(self):
+        return f'User {self.first_name}'
