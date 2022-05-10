@@ -2,7 +2,7 @@
 
 ## PROJECT PREVIEW
 
-![NEWS ARTICLE APP](./app/static/images/Screenshot%20A.png)
+![ PITCH APP](./app/static/images/Screenshot%20A.png)
 
 
 
@@ -31,13 +31,11 @@ The project was done as an individual.
 
 The technologies are ;
 
-:small_blue_diamond: HTML
+:small_blue_diamond: HTML,CSS,BOOSTRAP
 
-:small_blue_diamond: BOOSTRAP
+:small_blue_diamond:FLASK FRAMEWORK
 
-:small_blue_diamond: CSS
-
-:small_blue_diamond: PYTHON3.9(FLASK)
+:small_blue_diamond: PYTHON3.9
 
 :small_blue_diamond: DATABASE
 

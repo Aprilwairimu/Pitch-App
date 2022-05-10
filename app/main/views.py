@@ -32,7 +32,7 @@ def new_review(id):
 def index():
 
     '''
-    View root page function that returns the index page and its data
+    View root page function that returns the home page and its data
     '''
     pitch = Pitch.query.filter_by().first()
     title = 'Home'
