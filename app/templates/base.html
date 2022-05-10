@@ -15,22 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-            <div class="navbar-nav">
-               
-                <a class="nav-item nav-link" id="home" href="/">Home</a>
-                <a class="nav-item nav-link" id="logout" href="/logout">log Out</a>
-                <a class="nav-item nav-link" id="login" href="/login">Login</a>
-                <a class="nav-item nav-link" id="sign-up" href="/sign-up">Sign Up</a>
-               
-
-            </div>
-        </div>
-    </nav>
+   
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages%}
     {%for category,message in messages%}
@@ -52,6 +37,20 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
+
+
+
+<!--navbar-->
+<nav class="navbar1">
+    <div class="class1" id="navbar">
+        <div class="items">
+            <a class="item" id=" logout" href="{{url_for('auth.logout')}}">Log Out</a>
+            <a class="item" id=" home" href="/">Home</a> <a class="item" id=" login"
+                href="{{url_for('auth.login')}}">Login</a>
+            <a class="item" id=" signUp" href="{{url_for('auth.login')}}">sign Up</a>
+        </div>
+    </div>
+</nav>
     <div class="container">
         {% block content %}
         {% endblock %}

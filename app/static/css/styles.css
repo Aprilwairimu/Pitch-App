@@ -2,13 +2,10 @@
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
+    
 }
 /* login.html */
 
-body {
-    background-color: rgb(103, 176, 176);
-    
-}
 .login{
     font-size: 30px;
     font-weight: bold;
@@ -19,7 +16,37 @@ body {
     font-size: 30px;
     font-weight: bold;
 }
-body {
-    background-color: rgb(103, 176, 176);
 
+/* home.html */
+.home{
+    background-color: aquamarine;
+   
 }
+.image{
+    height: 90vh;
+    width: 40vw; 
+}
+.body{
+    background-color: rgb(102, 132, 132);
+    height: 100vh;
+    width: 70vw;
+}
+
+/* navbar.html */
+.navbar1 {
+    height: 80px;
+    background-color: black;
+}
+
+.items {
+    padding-top: 20px;
+}
+
+.item {
+    padding: 60px;
+    margin-top: 10px;
+    font-size: 30px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+  

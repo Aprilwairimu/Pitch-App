@@ -15,6 +15,8 @@ login_manager.login_view = 'auth.login'
 
 def create_app(config_name):
     app = Flask(__name__)
+
+    #Initializing Flask Extensions
     db.init_app(app) 
     login_manager.init_app(app) 
     mail.init_app(app) 
@@ -22,23 +24,14 @@ def create_app(config_name):
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
 
-    # #Initializing Flask Extensions
+   # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
     
-    
-    #    
-    #  login_manager=LoginManager()
-    # login_manager.login.view ="auth.login"
-    # login_manager.init_app(app)    
-# @login_manager.user_loader
-    # def load_user(id):
-    #     return User.query.get(int(id)) 
-       
-    from .views import views 
-    from .auth import auth
-    app.register_blueprint(views,url_prefix='/')
-    app.register_blueprint(auth,url_prefix='/')
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+
+
 
     return app
-   
-    # from .auth import auth as auth_blueprint
-    # app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')

@@ -9,13 +9,31 @@ Home
 {% endblock %}
 
 {% block content %}
-<h1 align="center" >Pitch</h1>
 
-<form method="POST ">
-    <textarea name="note" id="note" class="form-control"></textarea>
-    <br />
-    <div align="center">
-        <button type="submit" class="btn btn-primary">Add Pitch</button>
-    </div>
+
+<form method="POST" >
+
+    <section id="leran"class="p-5 body">
+        <div class="container ">
+            <div class="row align-items-center justify-content-between">
+                
+               
+                <div class="col-md p-5 ">
+                    <h1 align="center">Pitch</h1>
+                    <p class="lead">
+                       We create brand experiences that strike an emotional chord and motivate people to take action
+                    </p>
+                </div>
+                
+                <div class="col-md" >
+                    <img class="image" src="../static/images/laptop.jpeg" class="img-fluid " alt="">
+                </div>
+
+            </div>
+        </div>
+    </section>
+       
+   
+   
 </form>
 {% endblock %}
