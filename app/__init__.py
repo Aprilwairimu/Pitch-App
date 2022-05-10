@@ -2,10 +2,11 @@ from config import config_options
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_mail import Mail
 # from .models import User
 
 db = SQLAlchemy()
-# mail = Mail()# 
+mail = Mail()
 
 
 login_manager = LoginManager()
@@ -15,15 +16,16 @@ login_manager.login_view = 'auth.login'
 def create_app(config_name):
     app = Flask(__name__)
     db.init_app(app) 
+    login_manager.init_app(app) 
+    mail.init_app(app) 
 
-    login_manager.init_app(app)  
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
 
     # #Initializing Flask Extensions
     
     
-    # mail.init_app(app)    
+    #    
     #  login_manager=LoginManager()
     # login_manager.login.view ="auth.login"
     # login_manager.init_app(app)    
