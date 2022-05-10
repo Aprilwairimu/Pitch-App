@@ -1,13 +1,16 @@
 from flask import render_template,redirect,url_for
-# from . import auth
+#from . import auth
 from ..models import User
-from .forms import RegistrationForm
+from .forms import RegistrationForm,LoginForm
 from .. import db
 from flask_login import login_user,logout_user,login_required
+from ..email import mail_message
+
 
 @auth.route('/login')
 def login():
-    return render_template('auth/login.html')
+    login_form = LoginForm()
+    return render_template('auth/login.html',login_form = login_form)
 
 # @auth.route('/sign_up')
 # def sign_up():
@@ -20,6 +23,8 @@ def register():
         user = User(email = form.email.data, username = form.username.data,password = form.password.data)
         db.session.add(user)
         db.session.commit()
+
+        mail_message("Welcome to Pitch App","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
         title = "New Account"
     return render_template('auth/register.html',registration_form = form)
@@ -44,4 +49,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("main.index"))
+    return redirect(url_for("main.home"))
