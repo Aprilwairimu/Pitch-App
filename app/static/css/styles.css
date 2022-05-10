@@ -4,22 +4,11 @@
     font-family: "Roboto", sans-serif;
     
 }
-/* login.html */
-
-.login{
-    font-size: 30px;
-    font-weight: bold;
-    
-}
-/* sign_up.html */
-.signup{
-    font-size: 30px;
-    font-weight: bold;
-}
 
 /* home.html */
 .home{
     background-color: aquamarine;
+    background-size: cover;
    
 }
 .image{
@@ -31,6 +20,29 @@
     height: 100vh;
     width: 70vw;
 }
+
+.pi1 {
+    background-color: black;
+    color: rgb(160, 71, 244);
+    font-size: 25px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.pi2 {
+    background-color: black;
+    color: rgb(160, 71, 244);
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+.pi3 {
+    background-color: black;
+    color: rgb(160, 71, 244);
+    font-size: 25px;
+    border-radius: 5px;
+}
+
 
 /* navbar.html */
 .navbar1 {
@@ -45,8 +57,9 @@
 .item {
     padding: 60px;
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 25px;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
   
