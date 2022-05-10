@@ -21,28 +21,15 @@
     width: 70vw;
 }
 
-.pi1 {
+.pitch {
     background-color: black;
+    height: 40vh;
     color: rgb(160, 71, 244);
-    font-size: 25px;
+    font-size: 15px;
     border-radius: 5px;
     margin-top: 50px;
+    padding-top: 30px;
 }
-
-.pi2 {
-    background-color: black;
-    color: rgb(160, 71, 244);
-    font-size: 25px;
-    border-radius: 5px;
-}
-
-.pi3 {
-    background-color: black;
-    color: rgb(160, 71, 244);
-    font-size: 25px;
-    border-radius: 5px;
-}
-
 
 /* navbar.html */
 .navbar1 {

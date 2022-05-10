@@ -9,10 +9,6 @@ from ..email import mail_message
 
 
 
-# @auth.route('/sign_up')
-# def sign_up():
-#     return render_template('sign_up.html')
-
 @auth.route('/register',methods = ["GET","POST"])
 def register():
     form = RegistrationForm()
