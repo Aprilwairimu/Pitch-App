@@ -12,12 +12,13 @@ class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer,primary_key =True)
     data = db.Column(db.String (1000))
+    category = db.Column(db.String (1000))
     date = db.Column(db.DateTime(timezone = True),default=func.now)
     users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
     upvotes = db.relationship('Upvote', backref = 'pitch', lazy = 'dynamic')
     downvotes = db.relationship('Downvote', backref = 'pitch', lazy = 'dynamic')
-     
+    
 
      
 
@@ -26,7 +27,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key =True)
     email = db.Column(db.String (225),unique =True)
     password = db.Column(db.String (225))
-    first_name = db.Column(db.String (225))
+    username = db.Column(db.String (225))
     pitches = db.relationship('Pitch')
     pass_secure = db.Column(db.String(255))
     comment = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
