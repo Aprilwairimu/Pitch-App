@@ -1,17 +1,21 @@
-{% extends 'base.html'%}
+{% extends "base.html"%}
 {% import 'bootstrap/wtf.html' as wtf%}
+{% block title%} sign up {%endblock%} {% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
 
-{% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"> </div>
-        <div class="col-md-8">
+{% endblock %} {% block content %}
+<div class="sign">
+    <h3 align="center"> Sign up to get incredible piches</h3>
 
-            {{wtf.quick_form(registration_form)}}
+    <div class="container signup">
+        <div class="row">
+            <div class="col-md-2">
 
+            </div>
+            <div class="col-md-8">{{wtf.quick_form(registration_form)}}</div>
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2"></div>
     </div>
 </div>
-
-{% endblock%}
+{%endblock%}

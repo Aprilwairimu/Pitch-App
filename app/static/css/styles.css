@@ -4,9 +4,18 @@
     font-family: "Roboto", sans-serif;
     
 }
+/* register.html */
+.sign{
+    background-color: rgb(102, 132, 132);
+    
+}
+/* .login.html */
+.login{
+    background-color: rgb(102, 132, 132);
+}
 
 /* home.html */
-.home{
+/* .homepage{
     background-color: aquamarine;
     background-size: cover;
    
@@ -29,10 +38,10 @@
     border-radius: 5px;
     margin-top: 50px;
     padding-top: 30px;
-}
+}  */
 
 /* navbar.html */
-.navbar1 {
+navbarA {
     height: 80px;
     background-color: black;
 }
@@ -46,7 +55,7 @@
     margin-top: 10px;
     font-size: 25px;
     color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+    
+} 
 
   

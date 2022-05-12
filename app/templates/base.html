@@ -2,37 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>{% block title%} Home {% endblock %}</title>
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <title>{% block title%}Home {%endblock%}</title>
     {% block styles%}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+
     {% endblock %}
+    <script src="https://kit.fontawesome.com/4b22a001a1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-   
+    <nav class="navbarA navbar-expand-lg bg-dark navbar-dark ">
+        <div class="class1" id="navbar">
+            <div class="items">
 
+                >
+                <a class="item" id=" logout" href="{{url_for('auth.logout')}}">Log Out</a>
 
-<!--navbar-->
-<nav class="navbar1">
-    <div class="class1" id="navbar">
-        <div class="items">
-            <a class="item" id=" logout" href="{{url_for('auth.logout')}}">Log Out</a>
-            <a class="item" id=" home" href="/">Home</a> <a class="item" id=" login"
-                href="{{url_for('auth.login')}}">Login</a>
-            <a class="item" id=" signUp" href="{{url_for('auth.login')}}">Sign Up</a>
+                <a class="item" id=" home" href="/">Home</a>
+
+                <a class="item" id=" login" href="{{url_for('auth.login')}}">Login</a>
+                <a class="item" id=" signUp" href="{{url_for('auth.register')}}">sign Up</a>
+            </div>
         </div>
-    </div>
-</nav>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
+    </nav>
+
+    {%block content%} {%endblock%}
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -43,10 +43,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript">
-        src = "{{url_for('static', filename='index.js')}}"
-    </script> -->
-
+    <script>
+        type = "text/javascript";
+        ("{{url_for('static',filename='index.js')}}");
+    </script>
 </body>
 
 </html>

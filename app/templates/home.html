@@ -1,51 +1,73 @@
-{% extends "base.html" %}
-{% block title%}
-Home
-{% endblock %}
+{% extends "base.html"%} 
+{% import 'macros.html' as macro %} 
+{% import'bootstrap/wtf.html' as wtf%} 
+{% block title%} HOME {% endblock%} {% block
+styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
 
-{% block styles%}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
-{% endblock %}
+{% endblock %} {% block content %}
+<div class="homepage">
+    <div class="row row1">
+        <div class="col-md-2 colum1">
+            <div class="card card1">
+                <div class="card-body">Health</div>
+            </div>
+            <div class="card card1">
+                <div class="card-body">interview</div>
+            </div>
+            <div class="card card1">
+                <div class="card-body">job</div>
+            </div>
 
-{% block content %}
+            <div class="card card1">
+                <div class="card-body">promotion</div>
+            </div>
 
+            <br />
+            <!-- <i class="fa-solid fa-circle-user fa-4x"></i> -->
+           
+            {{wtf.quick_form(form)}}
+        </div>
 
-<form method="POST" >
-
-    <section id="leran"class="p-5 body">
-        <div class="container ">
-            <div class="row align-items-center justify-content-between">
-                
+        <div class="col-md-10">
+            <div class="container">
                
-                <div class="col-md p-8">
-                    <h1 align="center">Pitch</h1>
-                    <p class="lead">
-                       We create brand experiences that strike an emotional chord and motivate people to take action
-                    </p>
-                </div>
-                <div class="col-md" >
-                    <img class="image" src="../static/images/laptop.jpeg" class="img-fluid " alt="">
-                </div>
-                <div class="pitch">
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>Pitch Category</option>
-                        <option value="1">INTERVIEW PITCH</option>
-                        <option value="2">PROMOTION PITCH</option>
-                        <option value="3">PRODUCT PITCH</option>
-                    </select>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Add a Pitch here" id="floatingTextarea"></textarea>
-                        <label for="floatingTextarea">Add a Pitch</label>
-                        <br>
-                       <button type="button" class="btn btn-info">Submit</button>
+                <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#interview">INTERVIEW</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#promotion">PROMOTION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#religious">RELIGIOUS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#pickuplines">PICKUPLINES</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="memes" class="container tab-pane active">
+                        <br />
+                        {{ macro.display(interview) }}
+                    </div>
+                    <div id="thought" class="container tab-pane fade">
+                        <br />
+                        {{ macro.display(promotion) }}
+                    </div>
+                    <div id="religious" class="container tab-pane fade">
+                        <br />
+                        {{ macro.display(religious)}}
+                    </div>
+                    <div id="motivational" class="container tab-pane fade">
+                        <br />
+                        {{ macro.display(pickuplines) }}
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-       
-   
-   
-</form>
-{% endblock %}
+    </div>
+</div>
+
+{% endblock%}
