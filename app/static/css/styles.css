@@ -6,18 +6,28 @@
 }
 /* register.html */
 .sign{
-    background-color: rgb(102, 132, 132);
-    
+    background: linear-gradient(180deg, rgba(185, 105, 31, 0.66) 0%, rgba(6, 43, 172, 0.429) 100%);
+    height: 100vh;
 }
 /* .login.html */
 .login{
-    background-color: rgb(102, 132, 132);
+    background: linear-gradient(180deg, rgba(185, 105, 31, 0.66) 0%, rgba(6, 43, 172, 0.429) 100%);
+    height: 100vh;
 }
 
 /* home.html */
+.row1{
+    height: auto;
+    background: linear-gradient(180deg, rgba(185, 105, 31, 0.66) 0%, rgba(6, 43, 172, 0.429) 100%);
+    
+}
+.row2{
+    height: 50vh;
+    background: linear-gradient(180deg, rgba(185, 105, 31, 0.66) 0%, rgba(6, 43, 172, 0.429) 100%);
+}
 /* .homepage{
     background-color: aquamarine;
-    background-size: cover;
+    
    
 }
 .image{

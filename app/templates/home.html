@@ -3,44 +3,24 @@
 {% import'bootstrap/wtf.html' as wtf%} 
 {% block title%} HOME {% endblock%} {% block
 styles%} {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}" />
 
 {% endblock %} {% block content %}
 <div class="homepage">
     <div class="row row1">
-        <div class="col-md-2 colum1">
-            <div class="card card1">
-                <div class="card-body">Health</div>
-            </div>
-            <div class="card card1">
-                <div class="card-body">interview</div>
-            </div>
-            <div class="card card1">
-                <div class="card-body">job</div>
-            </div>
-
-            <div class="card card1">
-                <div class="card-body">promotion</div>
-            </div>
-
-            <br />
-            <!-- <i class="fa-solid fa-circle-user fa-4x"></i> -->
-           
-            {{wtf.quick_form(form)}}
-        </div>
-
-        <div class="col-md-10">
+        
+        <div class="col-md-12">
             <div class="container">
                
                 <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#interview">INTERVIEW</a>
+                        <a class="nav-link active" data-toggle="tab" href="#interviewpitch">INTERVIEW</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#promotion">PROMOTION</a>
+                        <a class="nav-link" data-toggle="tab" href="#promotionpitch">PROMOTION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#religious">RELIGIOUS</a>
+                        <a class="nav-link" data-toggle="tab" href="#productpitch">PRODUCT</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#pickuplines">PICKUPLINES</a>
@@ -48,25 +28,32 @@ styles%} {{ super() }}
                 </ul>
 
                 <div class="tab-content">
-                    <div id="memes" class="container tab-pane active">
+                    <div id="interviewpitch" class="container tab-pane active">
                         <br />
-                        {{ macro.display(interview) }}
+                        {{ macro.display(interviewpitch) }}
                     </div>
-                    <div id="thought" class="container tab-pane fade">
+                    <div id="promotionpitch" class="container tab-pane fade">
                         <br />
-                        {{ macro.display(promotion) }}
+                        {{ macro.display(promotionpitch) }}
                     </div>
-                    <div id="religious" class="container tab-pane fade">
+                    <div id="productpitch" class="container tab-pane fade">
                         <br />
-                        {{ macro.display(religious)}}
+                        {{ macro.display(productpitch)}}
                     </div>
-                    <div id="motivational" class="container tab-pane fade">
+                    <div id="pickuplines" class="container tab-pane fade">
                         <br />
                         {{ macro.display(pickuplines) }}
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row2">
+        <div class="col-md-12 colum2">
+        
+            {{wtf.quick_form(form)}}
+        </div>
+
     </div>
 </div>
 

@@ -30,16 +30,15 @@ def index():
     '''
     pitch = Pitch.query.filter_by().first()
     title = 'Home'
-    memes = Pitch.query.filter_by(category="memes")
-    thought = Pitch.query.filter_by(category = "thought")
-    religious = Pitch.query.filter_by(category = "religious")
-    motivational = Pitch.query.filter_by(category = "motivational")
+    promotionpitch = Pitch.query.filter_by(category="promotionpitch")
+    interviewpitch = Pitch.query.filter_by(category = "interviewpitch")
+    pickuplines = Pitch.query.filter_by(category = "pickuplines")
+    productpitch = Pitch.query.filter_by(category = "productpitch")
 
     upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
     
 
-    return render_template('home.html', title = title, pitch = pitch, memes
-    =memes, thought= thought, religious = religious, motivational = motivational, upvotes=upvotes,form=form)
+    return render_template('home.html', title = title, pitch = pitch, promotionpitch = promotionpitch,interviewpitch = interviewpitch,pickuplines = pickuplines,productpitch = productpitch,upvotes = upvotes,form = form)
     
 
 

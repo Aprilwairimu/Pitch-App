@@ -1,41 +1,67 @@
+# from email.policy import default
+from enum import unique
+from unicodedata import category
 from . import db
+from flask_login import UserMixin,current_user
 from sqlalchemy.sql import func
 from werkzeug.security import generate_password_hash,check_password_hash
-from flask_login import UserMixin,current_user
 from . import login_manager
 from datetime import datetime
+
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class Pitch(db.Model):
-    __tablename__ = 'pitches'
-    id = db.Column(db.Integer,primary_key =True)
-    data = db.Column(db.String (1000))
-    category = db.Column(db.String (1000))
-    date = db.Column(db.DateTime(timezone = True),default=func.now)
-    users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
-    upvotes = db.relationship('Upvote', backref = 'pitch', lazy = 'dynamic')
-    downvotes = db.relationship('Downvote', backref = 'pitch', lazy = 'dynamic')
-    
 
-     
 
 class User(UserMixin,db.Model):
+    
     __tablename__ = 'users'
-    id = db.Column(db.Integer,primary_key =True)
-    email = db.Column(db.String (225),unique =True)
-    password = db.Column(db.String (225))
-    username = db.Column(db.String (225))
-    pitches = db.relationship('Pitch')
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(255))
+    email = db.Column(db.String(255),unique = True,index = True)
     pass_secure = db.Column(db.String(255))
+    pitch = db.relationship('Pitch', backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
     upvotes = db.relationship('Upvote', backref = 'user', lazy = 'dynamic')
     downvotes = db.relationship('Downvote', backref = 'user', lazy = 'dynamic')
 
-     
+
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+
+    @password.setter
+    def password(self, password):
+        self.pass_secure = generate_password_hash(password)
+
+    def verify_password(self,password):
+        return check_password_hash(self.pass_secure,password)
+
+    def __repr__(self):
+        return f'{self.username}'
+
+
+
+class Pitch(db.Model):
+    '''
+    '''
+    __tablename__ = 'pitches'
+
+    id = db.Column(db.Integer, primary_key = True)
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    description = db.Column(db.String(), index = True)
+    title = db.Column(db.String())
+    # downvotes = db.Column(db.Integer, default=int(0))
+    # upvotes = db.Column(db.Integer, default=int(0))
+    category = db.Column(db.String(255), nullable=False)
+    comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
+    upvotes = db.relationship('Upvote', backref = 'pitch', lazy = 'dynamic')
+    downvotes = db.relationship('Downvote', backref = 'pitch', lazy = 'dynamic')
+
+    
     @classmethod
     def get_pitches(cls, id):
         pitches = Pitch.query.order_by(pitch_id=id).desc().all()
@@ -125,4 +151,48 @@ class Downvote(db.Model):
 
 
 
-   
+
+# class Note(db.Model):
+#     __tablename__ = 'note'
+
+#     id = db.Column(db.Integer,primary_key = True)
+#     category = db.Column(db.String(1000))
+#     data = db.Column(db.String(10000))
+#     date = db.Column(db.DateTime(timezone=True), default=func.now())
+#     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+
+
+#     def __repr__(self):
+#         return f'Note {self.data}'
+
+# class User(db.Model,UserMixin):
+#     __tablename__ = 'user'
+
+#     id = db.Column(db.Integer,primary_key = True)
+#     email = db.Column(db.String(255), unique=True)
+#     pass_secure = db.Column(db.String(255))
+#     username = db.Column(db.String(255))
+#     notes = db.relationship('Note',backref = 'user',lazy="dynamic")
+
+    
+
+    
+
+#     @login_manager.user_loader
+#     def load_user(user_id):
+#         return User.query.get(int(user_id))
+
+#     @property
+#     def password(self):
+#         raise AttributeError('You cannot read the password attribute')
+
+#     @password.setter
+#     def password(self, password):
+#         self.pass_secure = generate_password_hash(password)
+
+#     def verify_password(self,password):
+#         return check_password_hash(self.pass_secure,password)
+
+
+#     def __repr__(self):
+#         return f'User {self.username}'
