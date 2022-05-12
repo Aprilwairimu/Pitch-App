@@ -2,7 +2,7 @@
 
 ## PROJECT PREVIEW
 
-![ PITCH APP](./app/static/images/Screenshot%20A.png)
+![ PITCH APP](./app/static/images/pitch%20screenshot.png)
 
 
 
