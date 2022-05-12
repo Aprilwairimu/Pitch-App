@@ -32,6 +32,7 @@ Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.0.1
 future==0.18.2
 greenlet==1.1.2
+gunicorn==20.1.0
 gyp==0.1
 httplib2==0.18.1
 idna==2.10
