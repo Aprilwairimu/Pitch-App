@@ -1,3 +1,6 @@
 virtual/
 *.pyc
 instance/
+.env
+start.sh
+.webassets-cache
