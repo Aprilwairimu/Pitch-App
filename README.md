@@ -13,7 +13,7 @@ The users will submit their one minute pitches and other users will vote on them
 ### :pushpin:PROJECT SETUP INSTRUCTIONS
 
 - Open terminal {Ctrl +Alt + T}
-- git clone https://github.com/Aprilwairimu/news-article.git
+- git clone https://github.com/Aprilwairimu/Pitch-App
 - cd pitch App
 - code . or atom . depending on your text editor
 
